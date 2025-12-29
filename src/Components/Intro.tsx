@@ -27,6 +27,7 @@ const Intro = () => {
           <div className=" lg:hidden flex items-center space-x-2 lg:justify-start justify-center">
             <div className="text-red-800">
               <p className="font-semibold text">
+                Conference Record Number #70538
                 
               </p>
             </div>
