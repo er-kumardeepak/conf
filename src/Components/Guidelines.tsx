@@ -1,12 +1,9 @@
 import { Link } from "react-router-dom";
-function downloadFiles() {
-  // Define the download links for the two files
-  const docxFile =
-    "https://drive.google.com/uc?export=download&id=1YEBtFSi2ltpGdWDsIx6mbKeoituR120c";
-  const pdfFile =
-    "https://drive.google.com/uc?export=download&id=1T_RSbf-zgpgmF9NN_XABuo9PqGVcZ1gX";
 
-  // Open two new tabs with the download links
+function downloadFiles() {
+  // Download the files
+  const docxFile = "https://docs.google.com/document/d/14tXiC77v7NYX2_GoxYSetHOUMXo4QlMw/export?format=docx";
+  const pdfFile = "https://drive.google.com/uc?export=download&id=1LTmzS5yjMMbpUV5oBKOgja0HzFUE2Bs6";
   window.open(docxFile, "_blank");
   window.open(pdfFile, "_blank");
 }

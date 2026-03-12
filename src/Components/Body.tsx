@@ -241,7 +241,7 @@ const Body = () => {
             </div>
             <div className="space-y-3 p-4 rounded-b-md bg-gray-100 w-full lg:max-w-sm lg:max-h-52 lg:overflow-y-auto scrollbar-thin scrollbar-thumb-gray-400 scrollbar-thumb-rounded-md scrollbar-track-gray-200">
               <Link
-                to="https://forms.gle/YdrEnMongZt31Nws6"
+                to="https://forms.gle/BEaCfyGJwSNbuuHPA"
                 className="cursor-pointer"
               >
                 <div className="flex items-start justify-between">

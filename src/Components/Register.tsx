@@ -1,3 +1,8 @@
+const pdfFile = "https://drive.google.com/uc?export=download&id=1LTmzS5yjMMbpUV5oBKOgja0HzFUE2Bs6";
+const pptxFile = "https://docs.google.com/presentation/d/1Rmjq20fgsvCYWlv2d4AFqP6LowBerJc6/export?format=pptx";
+
+const docxFile = "https://docs.google.com/document/d/14tXiC77v7NYX2_GoxYSetHOUMXo4QlMw/export?format=docx";
+
 const Register = () => {
   return (
     <div>
@@ -14,7 +19,7 @@ const Register = () => {
           <div>
             <a
               className="inline-flex items-center justify-center px-5 py-2 mr-3 text-base font-medium text-center text-white rounded-lg bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 no-underline dark:focus:ring-red-900"
-              href="https://forms.gle/E7RuvuQQPxPZQnJU6"
+              href="https://forms.gle/BEaCfyGJwSNbuuHPA"
             >
               Register Now
               <svg
@@ -55,7 +60,7 @@ const Register = () => {
             <div>
               <a
                 className="inline-flex items-center justify-center px-5 py-2 mr-3 text-base font-medium text-center text-white rounded-lg bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 no-underline dark:focus:ring-red-900"
-                href="https://drive.google.com/uc?export=download&id=1X5xQ3tQ4B86YQX4cLeM-RJXK7FFDblfX"
+                href={docxFile}
               >
                 Download Docx File
                 <svg
@@ -75,7 +80,8 @@ const Register = () => {
             <div>
               <a
                 className="inline-flex items-center justify-center px-5 py-2 mr-3 text-base font-medium text-center text-white rounded-lg bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 no-underline dark:focus:ring-red-900"
-                href="https://drive.google.com/uc?export=download&id=1BOIgr3Ayd8vTSWtBuPApB_eba0bpzrEn"
+                href={pdfFile}
+                download
               >
                 Download PDF File
                 <svg
@@ -105,7 +111,8 @@ const Register = () => {
             <div>
               <a
                 className="inline-flex items-center justify-center px-5 py-2 mr-3 text-base font-medium text-center text-white rounded-lg bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 no-underline dark:focus:ring-red-900"
-                href="https://drive.google.com/uc?export=download&id=17nDlYmpmPCjn4BSAfzK5LiKKP8QVMKie"
+                href={pptxFile}
+                download
               >
                 Download PPTX File
                 <svg
