@@ -50,12 +50,15 @@ const HeroSection = () => {
           <div className="order-1 w-full lg:w-1/2" style={{ animation: 'fade-right 1s ease-out forwards' }}>
             
             <h2 className="text-[25px] sm:text-[30px] md:text-[35px] leading-[1.2] mb-1 text-red-900">
-              <span className="text-red-900">2<sup className="text-[0.6em] align-super">nd</sup>{" "}</span>International Conference on Advances in <span className="text-red-900"> Computing, Communication and Networking</span>
+              <span className="text-red-900">2<sup className="text-[0.6em] align-super">nd</sup>{" "}</span>IEEE International Conference on Advances in <span className="text-red-900"> Computing, Communication and Networking</span>
             </h2>
             
             <h2 className="text-[25px] sm:text-[30px] md:text-[35px] mb-2 text-red-900">
               ICAC2N 2026
             </h2>
+            <div className="flex items-center mb-1 text-red-900 font-medium relative w-fit">
+                  <p>Conference Record Number <span className="text-red-900">#70538</span></p>
+            </div>
             <div className="flex items-center mb-6 text-red-900 font-medium relative w-fit">
                   <p>IEEE XPLORE COMPLIANT ISBN No. <span className="text-red-900">979-8-3315-6477-3</span></p>
             </div>

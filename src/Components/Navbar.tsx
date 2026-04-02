@@ -116,7 +116,7 @@ const Navbar = () => {
           <div className="animate-scroll text-red-900 font-medium py-1.5 text-[14px]">
             {/* Group 1 */}
             <div className="flex items-center justify-around w-max pr-12">
-              <span className="mr-12">📌 Welcome to ICAC2N 2026.</span>
+              <span className="mr-12">📌 Welcome to ICAC2N 2026.</span> 
               <span className="mr-12">📌 2nd International Conference on Advances in Computing, Communication and Networking- ICAC2N</span>
               <span className="mr-12">📌 30th & 31st October 2026</span>
               <span className="mr-12">📌 Conference Record Number #70538</span>
@@ -150,14 +150,14 @@ const Navbar = () => {
               </Link>
               <div className="hidden md:flex flex-col border-l border-red/90 pl-3 md:pl-4">
                 <span
-                  className={`tracking-wide text-[11px] md:text-[12px] font-medium leading-tight ${
+                  className={`tracking-wide text-[21px] font-medium leading-tight ${
                     isWhiteNavbarText ? "text-white" : "text-red-900"
                   }`}
                 >
                   30th & 31st October 2026
                 </span>
                 <span
-                  className={`text-[9px] md:text-[10px] uppercase font-semibold tracking-wider mt-0.5 ${
+                  className={`text-[12px] uppercase font-semibold tracking-wider mt-0.5 ${
                     isWhiteNavbarText ? "text-white" : "text-red-900"
                   }`}
                 >

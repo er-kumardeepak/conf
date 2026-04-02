@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+import "swiper/swiper-bundle.css";
 
 import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
@@ -20,15 +18,14 @@ const Intro = () => {
       <div className="flex flex-col justify-center items-center text-center lg:text-start gap-10 lg:flex-row lg:justify-between">
         <div className="flex flex-col gap-4 h-full lg:w-[70%]">
           <div className="flex items-center space-x-2 lg:justify-start justify-center">
-            <p className="text-red-800 font-semibold">
+            <p className="text-[21px] text-red-800 font-semibold">
               30th & 31st October 2026
             </p>
           </div>
           <div className="flex items-center space-x-2 lg:justify-start justify-center">
             <div className="text-red-800">
-              <p className="font-semibold text">
+              <p className="text-xs font-semibold text">
                 Conference Record Number #70538
-                
               </p>
             </div>
           </div>

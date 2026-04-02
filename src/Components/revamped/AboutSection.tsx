@@ -1,4 +1,4 @@
-import { GraduationCap, CalendarDays, FileText, Link as LinkIcon } from "lucide-react";
+import { GraduationCap, CalendarDays, FileText, Link as LinkIcon, ChevronLeft, ChevronRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/Components/ui/carousel";
@@ -36,20 +36,73 @@ const icac25Glimpses = [
   "/ICAC2N/unnamed (3).jpg",
 ];
 
+const gallerySectionImages = [
+  "/All 2025 ICAC2N Images/unnamed.jpg",
+  "/All 2025 ICAC2N Images/unnamed (1).jpg",
+  "/All 2025 ICAC2N Images/unnamed3.jpg",
+  "/All 2025 ICAC2N Images/unnamed4.jpg",
+  "/All 2025 ICAC2N Images/unnamed5.jpg",
+  "/All 2025 ICAC2N Images/unnamed6.jpg",
+  "/All 2025 ICAC2N Images/unnamed7.jpg",
+  "/All 2025 ICAC2N Images/unnamed8.jpg",
+  "/All 2025 ICAC2N Images/unnamed9.jpg",
+];
+
+const orderedLightboxImages = Array.from(new Set([...icac25Glimpses, ...gallerySectionImages]));
+
 const AboutSection = () => {
   const plugin = useRef(Autoplay({ delay: 2500, stopOnInteraction: true }));
-  const [selectedGlimpse, setSelectedGlimpse] = useState<string | null>(null);
+  const [selectedGlimpse, setSelectedGlimpse] = useState<number | null>(null);
+  const isLightboxOpen = selectedGlimpse !== null;
+
+  const showPreviousGlimpse = () => {
+    setSelectedGlimpse((prev) =>
+      prev === null ? null : (prev - 1 + orderedLightboxImages.length) % orderedLightboxImages.length
+    );
+  };
+
+  const showNextGlimpse = () => {
+    setSelectedGlimpse((prev) =>
+      prev === null ? null : (prev + 1) % orderedLightboxImages.length
+    );
+  };
 
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         setSelectedGlimpse(null);
+        return;
+      }
+      if (event.key === "ArrowLeft") {
+        setSelectedGlimpse((prev) =>
+          prev === null ? null : (prev - 1 + orderedLightboxImages.length) % orderedLightboxImages.length
+        );
+        return;
+      }
+      if (event.key === "ArrowRight") {
+        setSelectedGlimpse((prev) =>
+          prev === null ? null : (prev + 1) % orderedLightboxImages.length
+        );
       }
     };
 
     window.addEventListener("keydown", handleEscape);
     return () => window.removeEventListener("keydown", handleEscape);
   }, []);
+
+  useEffect(() => {
+    if (!isLightboxOpen) {
+      return;
+    }
+
+    const autoSlideTimer = window.setInterval(() => {
+      setSelectedGlimpse((prev) =>
+        prev === null ? null : (prev + 1) % orderedLightboxImages.length
+      );
+    }, 2500);
+
+    return () => window.clearInterval(autoSlideTimer);
+  }, [isLightboxOpen]);
 
   return (
     <section className="py-2 bg-white relative">
@@ -193,11 +246,11 @@ const AboutSection = () => {
                 <button
                   key={image}
                   type="button"
-                  onClick={() => setSelectedGlimpse(image)}
+                  onClick={() => setSelectedGlimpse(index)}
                   className="h-[140px] sm:h-[180px] md:h-[210px] rounded-md overflow-hidden border border-slate-200 shadow-sm group text-left"
                 >
                   <img
-                    src={image}
+                    src={encodeURI(image)}
                     alt={`ICAC2N-25 glimpse ${index + 1}`}
                     className="w-full h-full brightness-150 object-cover group-hover:scale-105 transition-transform duration-500"
                   />
@@ -344,7 +397,7 @@ const AboutSection = () => {
         </div>
       </div>
 
-      {selectedGlimpse && (
+      {selectedGlimpse !== null && (
         <div
           className="fixed inset-0 bg-black/85 z-[120] flex items-center justify-center p-4"
           onClick={() => setSelectedGlimpse(null)}
@@ -355,14 +408,39 @@ const AboutSection = () => {
             onClick={() => setSelectedGlimpse(null)}
             className="absolute top-4 right-4 h-10 w-10 rounded-full bg-white/95 text-red-900 text-xl leading-none shadow-md"
           >
-            ×
+            &times;
+          </button>
+          <button
+            type="button"
+            aria-label="Show previous image"
+            onClick={(event) => {
+              event.stopPropagation();
+              showPreviousGlimpse();
+            }}
+            className="absolute left-2 sm:left-4 h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-white/95 text-red-900 shadow-md flex items-center justify-center hover:bg-white transition-colors"
+          >
+            <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
           </button>
           <img
-            src={selectedGlimpse}
-            alt="ICAC2N-25 full image"
+            src={encodeURI(orderedLightboxImages[selectedGlimpse])}
+            alt={`ICAC2N-25 full image ${selectedGlimpse + 1} of ${orderedLightboxImages.length}`}
             className="max-w-[95vw] max-h-[90vh] object-contain rounded-md"
             onClick={(event) => event.stopPropagation()}
           />
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-white/90 text-red-900 text-xs sm:text-sm px-3 py-1 rounded-full shadow">
+            {selectedGlimpse + 1} / {orderedLightboxImages.length}
+          </div>
+          <button
+            type="button"
+            aria-label="Show next image"
+            onClick={(event) => {
+              event.stopPropagation();
+              showNextGlimpse();
+            }}
+            className="absolute right-2 sm:right-4 h-10 w-10 sm:h-12 sm:w-12 rounded-full bg-white/95 text-red-900 shadow-md flex items-center justify-center hover:bg-white transition-colors"
+          >
+            <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
+          </button>
         </div>
       )}
     </section>
