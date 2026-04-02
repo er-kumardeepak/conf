@@ -136,7 +136,7 @@ const Speakers = () => {
             <div className="col-span-1 border-2 border-red-700   shadow-md grid grid-cols-3 gap-3  rounded-lg">
               <div className="col-span-1 w-full h-44 overflow-hidden rounded-lg">
                 <img  
-                  src="/speakers/ashish-gupta.jpg"
+                  src="/speaker-assets/ashish-gupta.jpg"
                   className="h-full w-full object-cover scale-110"
                   alt="Prof. (Dr.) Ashish Gupta"
                 />

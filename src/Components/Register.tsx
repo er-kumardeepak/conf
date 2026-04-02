@@ -4,6 +4,13 @@ const pptxFile = "https://docs.google.com/presentation/d/1Rmjq20fgsvCYWlv2d4AFqP
 const docxFile = "https://docs.google.com/document/d/14tXiC77v7NYX2_GoxYSetHOUMXo4QlMw/export?format=docx";
 
 const Register = () => {
+  const scrollToBankDetails = () => {
+    document.getElementById("bank-account-details")?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   return (
     <div className="max-w-full mx-auto py-6 px-2 sm:px-6 lg:px-8">
       <div className="max-w-screen-xl mx-auto px-2 sm:px-4 my-8 min-h-[calc(100vh-28.8rem)]">
@@ -40,13 +47,14 @@ const Register = () => {
             <p className="text-sm font-medium text-red-900 mb-2">
               Already ready with payment details?
             </p>
-            <a
-              href="#bank-account-details"
+            <button
+              type="button"
+              onClick={scrollToBankDetails}
               className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-red-700 hover:bg-red-800 px-4 py-2 rounded-md no-underline"
             >
               Jump to Bank Account Details
               <span aria-hidden="true">↓</span>
-            </a>
+            </button>
           </div>
           <hr className="h-px my-5 bg-gray-200 border-0 dark:bg-gray-700" />
           <h2 className="heading text-tw-prose-headings text-xl mb-4 leading-tight border-l-4 border-red-600 pl-4 pr-4 text-left">
